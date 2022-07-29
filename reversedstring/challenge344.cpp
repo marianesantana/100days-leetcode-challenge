@@ -9,14 +9,26 @@ using std::vector;
 using namespace std;
 
 void reverseString(vector<char>& s) {
-        stack<char> st;
-        for(int i = 0; i<s.size(); i++){
-            st.push(s[i]);
-        }
-        for(int i = 0; i<s.size(); i++){
-            s[i] = st.top();
-            st.pop();
-            std::cout<<s[i];
+    //o(n2)
+        // stack<char> st;
+        // for(int i = 0; i<s.size(); i++){
+        //     st.push(s[i]);
+        // }
+        // for(int i = 0; i<s.size(); i++){
+        //     s[i] = st.top();
+        //     st.pop();
+        //     std::cout<<s[i];
+        // }
+
+        //o(1) 
+
+        int beginString = 0;
+        int finalString = s.size() -1;
+
+        while(beginString <= finalString){
+            swap(s[beginString], s[finalString]);
+            beginString++;
+            finalString--;
         }
     }
 
